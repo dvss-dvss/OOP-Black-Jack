@@ -1,9 +1,9 @@
 # Блек-джек
 # Вiд 1 до 7 гравцiв проти дилера
 
-import cards, games
+import cards1, games1
 
-class BJ_Card(cards.Positionable_Card):
+class BJ_Card(cards1.Positionable_Card):
     """Карта для гри в Блек-джек."""
     ACE_VALUE = 1
 
@@ -18,14 +18,14 @@ class BJ_Card(cards.Positionable_Card):
                 v = None
             return v
         
-class BJ_Deck(cards.Deck):
+class BJ_Deck(cards1.Deck):
     """Колода для гри в Блек-джек"""
     def populate(self):
         for suit in BJ_Card.SUITS:
             for rank in BJ_Card.RANKS:
                 self.cards.append(BJ_Card(rank, suit))
 
-class BJ_Hand(cards.Hand):
+class BJ_Hand(cards1.Hand):
     """Рука гравця в Блек_джек."""
     def __init__(self,name):
         super().__init__()
@@ -68,7 +68,7 @@ class BJ_Hand(cards.Hand):
 class BJ_Player(BJ_Hand):
     """Гравець у Блек-джек. """
     def is_hitting(self):
-        response = games.ask_yes_no("\n" + self.name +
+        response = games1.ask_yes_no("\n" + self.name +
             ", братимете ще карти")
         return response == "y"
     
@@ -173,7 +173,7 @@ def main():
     print("\t\tЛаскаво просимо до гри Блек-джек!\n")
 
     names - []
-    number = games.ask_number("Скiльки всього гравцiв? (1-7):",
+    number = games1.ask_number("Скiльки всього гравцiв? (1-7):",
                                 low = 1, high = 7)
     
     for i in range(number):
@@ -186,6 +186,6 @@ def main():
     again = None
     while again != "n":
         game.play()
-        again = games.ask_yes_no("\nБажаэте зiграти ще раз")
+        again = games1.ask_yes_no("\nБажаэте зiграти ще раз")
 
 main()

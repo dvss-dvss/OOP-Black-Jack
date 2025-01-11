@@ -1,5 +1,5 @@
 from hand import Hand
-from cards import Card
+from cards1 import Card
 class Deck(Hand):
     """ Колода гральних карт. """
 
